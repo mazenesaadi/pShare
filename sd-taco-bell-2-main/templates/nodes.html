@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% set active = 'nodes' %}
+{% block title %}Storage Nodes{% endblock %}
+{% block content %}
+  <div class="card">
+    <h2>Connected Storage Nodes</h2>
+    <form method="POST">
+      <table class="files">
+        <thead>
+          <tr>
+            <th>Device</th>
+            <th>Usage (MB)</th>
+            <th class="actions">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for uuid, info in connected_snodes.items() %}
+          <tr>
+            <td>{{ info[0] }}</td>
+            <td>{{ info[1] }} / {{ info[2] }}</td>
+            <td class="actions">
+              <button class="btn-icon delete"
+                      formaction="/remove-snode"
+                      name="{{ uuid }}">-</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Available Storage Nodes</h2>
+    <form method="POST">
+      <table class="files">
+        <thead>
+          <tr>
+            <th>Device</th>
+            <th>Capacity (MB)</th>
+            <th class="actions">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for uuid, info in available_snodes.items() %}
+          <tr>
+            <td>{{ info[0] }}</td>
+            <td>{{ info[1] }}</td>
+            <td class="actions">
+              <button class="btn-icon download"
+                      formaction="/add-snode"
+                      name="{{ uuid }}">+</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+{% endblock %}

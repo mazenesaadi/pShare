@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pShare • {% block title %}{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <nav class="sidebar">
+    <div class="logo">pShare</div>
+    <ul class="nav-list">
+      <li><a href="/"       class="{% if active=='home'  %}active{% endif %}">🏠︎ Home</a></li>
+      <li><a href="/snodes" class="{% if active=='nodes'  %}active{% endif %}">🛢️ Storage Nodes</a></li>
+      <li><a href="/cloud"  class="{% if active=='cloud' %}active{% endif %}">☁️ Cloud</a></li>
+    </ul>
+  </nav>
+  <main>
+    <header class="appbar">
+      <h1>{% block heading %}{% endblock %}</h1>
+    </header>
+    <section class="content">
+      {% block content %}{% endblock %}
+    </section>
+  </main>
+</body>
+</html>

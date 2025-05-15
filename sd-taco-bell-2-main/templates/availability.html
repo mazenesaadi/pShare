@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% set active = 'home' %}
+{% block title %}File Availability{% endblock %}
+{% block content %}
+  <div class="card">
+    <h2>Remote Device Availability</h2>
+    <table class="files">
+      <thead>
+        <tr>
+          <th>Remote Device</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for name, avail in name_availability.items() %}
+        <tr>
+          <td>{{ name }}</td>
+          <td>
+            {% if avail == 1 %}
+              <span style="color:green;font-weight:600;">Connected</span>
+            {% else %}
+              <span style="color:crimson;font-weight:600;">Disconnected</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
