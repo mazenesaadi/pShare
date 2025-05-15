@@ -1,3 +1,11 @@
+# This project was a group effort and has been moved into this publicly viewable repository
+Credits to the following contributors of this project:
+
+https://github.com/willm13
+https://github.com/jsherwood00
+https://github.com/JamesX111
+
+
 # pShare Documentation
 To run pShare:
 - Clone this repo
